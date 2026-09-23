@@ -1,0 +1,412 @@
+<?xml version="1.0" ?>
+<robot name="Robotic" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find Robotic_description)/urdf/materials.xacro" />
+  <xacro:include filename="$(find Robotic_description)/urdf/Robotic.ros2control" />
+  <xacro:include filename="$(find Robotic_description)/urdf/Robotic.gazebo" />
+
+  <!-- ================= BASE ================= -->
+
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0.00019608322687622598 4.7129774473542457e-17 0.022210240717664115" rpy="0 0 0"/>
+      <mass value="0.7043648518485409"/>
+      <inertia ixx="0.000939" iyy="0.001008" izz="0.001523" ixy="0.0" iyz="0.0" ixz="3e-05"/>
+    </inertial>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find Robotic_description)/meshes/base_link.stl"
+              scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find Robotic_description)/meshes/base_link.stl"
+              scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+
+  <!-- ================= WAIST ================= -->
+
+  <link name="waist_link__1">
+    <inertial>
+      <origin xyz="-0.008232942462193962 0.002680368030724079 0.01863951167643068" rpy="0 0 0"/>
+      <mass value="0.5291367202831168"/>
+      <inertia ixx="0.000393" iyy="0.000443" izz="0.000438"
+               ixy="-6.2e-05" iyz="8e-06" ixz="8.1e-05"/>
+    </inertial>
+
+    <visual>
+      <origin xyz="-0.0 -0.0 -0.056" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find Robotic_description)/meshes/waist_link__1.stl"
+              scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+
+    <collision>
+      <origin xyz="-0.0 -0.0 -0.056" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find Robotic_description)/meshes/waist_link__1.stl"
+              scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+
+  <!-- ================= SHOULDER ================= -->
+
+  <link name="shoulder_link_1">
+    <inertial>
+      <origin xyz="0.004976182562488834 -0.006174852032409734 0.05286353505809295" rpy="0 0 0"/>
+      <mass value="0.4764598948036751"/>
+      <inertia ixx="0.000787" iyy="0.000795" izz="7e-05"
+               ixy="-1.8e-05" iyz="-0.0" ixz="0.0"/>
+    </inertial>
+
+    <visual>
+      <origin xyz="0.013341 0.005613 -0.10028" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find Robotic_description)/meshes/shoulder_link_1.stl"
+              scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0.013341 0.005613 -0.10028" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find Robotic_description)/meshes/shoulder_link_1.stl"
+              scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+
+  <!-- ================= ELBOW ================= -->
+
+  <link name="elbow_link_1">
+    <inertial>
+      <origin xyz="0.03123491762487425 0.03246565125111838 2.8290162693428433e-05" rpy="0 0 0"/>
+      <mass value="0.3793018917487677"/>
+      <inertia ixx="0.000216" iyy="0.000302" izz="0.000423"
+               ixy="-0.000185" iyz="-0.0" ixz="-0.0"/>
+    </inertial>
+
+    <visual>
+      <origin xyz="0.013341 0.005613 -0.21303" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find Robotic_description)/meshes/elbow_link_1.stl"
+              scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0.013341 0.005613 -0.21303" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find Robotic_description)/meshes/elbow_link_1.stl"
+              scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+
+  <!-- ================= WRIST ROLL ================= -->
+
+  <link name="wrist_roll_link_1">
+    <inertial>
+      <origin xyz="0.01723922000105483 0.006875273485043666 0.005029953172644069"
+              rpy="0 0 0"/>
+      <mass value="0.11809299128853043"/>
+      <inertia ixx="2.1e-05" iyy="3.3e-05" izz="2.8e-05"
+               ixy="-8e-06" iyz="0.0" ixz="0.0"/>
+    </inertial>
+
+    <visual>
+      <origin xyz="-0.056985 -0.058121 -0.20773" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find Robotic_description)/meshes/wrist_roll_link_1.stl"
+              scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+
+    <collision>
+      <origin xyz="-0.056985 -0.058121 -0.20773" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find Robotic_description)/meshes/wrist_roll_link_1.stl"
+              scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+
+  <!-- ================= WRIST PITCH ================= -->
+
+  <link name="wrist_pitch_link_1">
+    <inertial>
+      <origin xyz="0.01679443820323824 0.02030656843440662 0.006660009250878979"
+              rpy="0 0 0"/>
+      <mass value="0.12525982922438417"/>
+      <inertia ixx="5.3e-05" iyy="3e-05" izz="7.1e-05"
+               ixy="-1.6e-05" iyz="-9e-06" ixz="-6e-06"/>
+    </inertial>
+
+    <visual>
+      <origin xyz="-0.087581 -0.064777 -0.212687" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find Robotic_description)/meshes/wrist_pitch_link_1.stl"
+              scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+
+    <collision>
+      <origin xyz="-0.087581 -0.064777 -0.212687" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find Robotic_description)/meshes/wrist_pitch_link_1.stl"
+              scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+
+  <!-- ================= GRIPPER GEARS ================= -->
+
+  <link name="Gear_2_1">
+    <inertial>
+      <origin xyz="0.004437435030473488 0.0029624223682456208 0.0020119756579396186"
+              rpy="0 0 0"/>
+      <mass value="0.01905515286062187"/>
+      <inertia ixx="2e-06" iyy="2e-06" izz="3e-06"
+               ixy="-1e-06" iyz="-0.0" ixz="-0.0"/>
+    </inertial>
+
+    <visual>
+      <origin xyz="-0.105938 -0.102503 -0.226836" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find Robotic_description)/meshes/Gear_2_1.stl"
+              scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+
+    <collision>
+      <origin xyz="-0.105938 -0.102503 -0.226836" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find Robotic_description)/meshes/Gear_2_1.stl"
+              scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+
+  <link name="Gear_1_1">
+    <inertial>
+      <origin xyz="0.0037364847012667096 0.0035914055213269597 0.0020145770194352763"
+              rpy="0 0 0"/>
+      <mass value="0.0196126693177059"/>
+      <inertia ixx="1e-06" iyy="2e-06" izz="3e-06"
+               ixy="-1e-06" iyz="-0.0" ixz="-0.0"/>
+    </inertial>
+
+    <visual>
+      <origin xyz="-0.122817 -0.081557 -0.226753" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find Robotic_description)/meshes/Gear_1_1.stl"
+              scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+
+    <collision>
+      <origin xyz="-0.122817 -0.081557 -0.226753" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find Robotic_description)/meshes/Gear_1_1.stl"
+              scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+
+  <!-- ================= GRIPPER FINGERS ================= -->
+
+  <link name="Gripper_1">
+    <inertial>
+      <origin xyz="0.017994221681372324 0.018928450602989394 0.004324492503805566"
+              rpy="0 0 0"/>
+      <mass value="0.03530789973538108"/>
+      <inertia ixx="7e-06" iyy="5e-06" izz="1.1e-05"
+               ixy="-5e-06" iyz="-0.0" ixz="-0.0"/>
+    </inertial>
+
+    <visual>
+      <origin xyz="-0.129882 -0.121781 -0.230913" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find Robotic_description)/meshes/Gripper_1.stl"
+              scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+
+    <collision>
+      <origin xyz="-0.129882 -0.121781 -0.230913" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find Robotic_description)/meshes/Gripper_1.stl"
+              scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+
+  <link name="Gripper_2">
+    <inertial>
+      <origin xyz="0.022337875155330533 0.013538571652472353 0.004303279940584742"
+              rpy="0 0 0"/>
+      <mass value="0.03530789973538108"/>
+      <inertia ixx="3e-06" iyy="9e-06" izz="1.1e-05"
+               ixy="-4e-06" iyz="-0.0" ixz="-0.0"/>
+    </inertial>
+
+    <visual>
+      <origin xyz="-0.14676 -0.100836 -0.23083" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find Robotic_description)/meshes/Gripper_2.stl"
+              scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+
+    <collision>
+      <origin xyz="-0.14676 -0.100836 -0.23083" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find Robotic_description)/meshes/Gripper_2.stl"
+              scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+
+  <!-- ================= JOINTS ================= -->
+
+  <!-- Base -->
+  <joint name="base_joint" type="revolute">
+    <origin xyz="0.0 0.0 0.056" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="waist_link__1"/>
+    <axis xyz="0.0 0.0 1.0"/>
+    <limit lower="-3.14159" upper="3.14159"
+           effort="10.0" velocity="1.0"/>
+  </joint>
+
+
+  <!-- Shoulder -->
+  <joint name="shoulder_joint" type="revolute">
+    <origin xyz="-0.013341 -0.005613 0.04428" rpy="0 0 0"/>
+    <parent link="waist_link__1"/>
+    <child link="shoulder_link_1"/>
+    <axis xyz="-0.627463 0.778646 0.0"/>
+    <limit lower="-1.5708" upper="1.5708"
+           effort="10.0" velocity="1.0"/>
+  </joint>
+
+
+  <!-- Elbow -->
+  <joint name="elbow_joint" type="revolute">
+    <origin xyz="0.0 0.0 0.11275" rpy="0 0 0"/>
+    <parent link="shoulder_link_1"/>
+    <child link="elbow_link_1"/>
+    <axis xyz="0.627463 -0.778646 -0.0"/>
+    <limit lower="-1.200" upper="2.356194"
+           effort="10.0" velocity="1.0"/>
+  </joint>
+
+
+  <!-- Wrist Roll -->
+  <joint name="wrist_roll_joint" type="revolute">
+    <origin xyz="0.070326 0.063734 -0.0053" rpy="0 0 0"/>
+    <parent link="elbow_link_1"/>
+    <child link="wrist_roll_link_1"/>
+    <axis xyz="0.778646 0.627463 -0.0"/>
+    <limit lower="-3.14159" upper="3.14159"
+           effort="10.0" velocity="1.0"/>
+  </joint>
+
+
+  <!-- ================= WRIST PITCH - INCREASED ================= -->
+
+  <joint name="wrist_pitch_link" type="revolute">
+    <origin xyz="0.030596 0.006656 0.004957" rpy="0 0 0"/>
+    <parent link="wrist_roll_link_1"/>
+    <child link="wrist_pitch_link_1"/>
+    <axis xyz="-0.62746 0.778643 0.003081"/>
+
+    <!-- -180° to +180° -->
+    <limit lower="-3.14159"
+           upper="3.14159"
+           effort="10.0"
+           velocity="1.0"/>
+  </joint>
+
+
+  <!-- ================= MAIN GRIPPER - INCREASED ================= -->
+
+  <joint name="finger_gripper_joint" type="revolute">
+    <origin xyz="0.018357 0.037726 0.014149" rpy="0 0 0"/>
+    <parent link="wrist_pitch_link_1"/>
+    <child link="Gear_2_1"/>
+    <axis xyz="-0.0 -0.003957 0.999992"/>
+
+    <!-- 0° to 90° -->
+   <limit lower="0.0"
+       upper="1.5708"
+       effort="10.0"
+       velocity="1.0"/>
+  </joint>
+
+
+  <!-- ================= MIMIC GRIPPER ================= -->
+
+  <joint name="right_finger_joint" type="revolute">
+    <origin xyz="0.035236 0.01678 0.014066" rpy="0 0 0"/>
+    <parent link="wrist_pitch_link_1"/>
+    <child link="Gear_1_1"/>
+    <axis xyz="-0.0 -0.003957 0.999992"/>
+
+    <!-- -90° to 0° -->
+    <limit lower="-1.5708"
+           upper="0.0"
+           effort="10.0"
+           velocity="1.0"/>
+
+    <mimic joint="finger_gripper_joint"
+           multiplier="-1.0"
+           offset="0.0"/>
+  </joint>
+
+
+  <!-- ================= FIXED JOINTS ================= -->
+
+  <joint name="Rigid 24" type="fixed">
+    <origin xyz="0.023944 0.019278 0.004077" rpy="0 0 0"/>
+    <parent link="Gear_2_1"/>
+    <child link="Gripper_1"/>
+  </joint>
+
+
+  <joint name="Rigid 25" type="fixed">
+    <origin xyz="0.023943 0.019279 0.004077" rpy="0 0 0"/>
+    <parent link="Gear_1_1"/>
+    <child link="Gripper_2"/>
+  </joint>
+
+</robot>
